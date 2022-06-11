@@ -6,6 +6,7 @@
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Authors>Rodrigo Nascimento</Authors>
     <Description>A library of tools for Brazilian documents</Description>
+    <Version>1.0.0-alpha</Version>
   </PropertyGroup>
 
   <ItemGroup>
