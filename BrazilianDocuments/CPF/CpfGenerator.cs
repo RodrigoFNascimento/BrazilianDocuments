@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BrazilianDocuments.Extensions;
+using System;
 using System.Linq;
 
 namespace BrazilianDocuments.CPF
@@ -31,5 +32,14 @@ namespace BrazilianDocuments.CPF
 
             return string.Join("", cpf);
         }
+
+        /// <summary>
+        /// Randomly generates a CPF number in a custom format.
+        /// </summary>
+        /// <param name="pattern">Pattern used to format the document number</param>
+        /// <param name="replacement">Replacement used to format the document number</param>
+        /// <returns>Random CPF number in specified format.</returns>
+        public static string GenerateInCustomFormat(string pattern, string replacement) =>
+            Generate().FormatString(pattern, replacement);
     }
 }
