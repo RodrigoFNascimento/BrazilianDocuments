@@ -13,24 +13,39 @@ namespace BrazilianDocuments.CPF
         /// Default CPF number length established by the government.
         /// </summary>
         private const byte CpfLength = 11;
+        /// <summary>
+        /// Default pattern used to format the document number
+        /// according to the official format established by the government.
+        /// </summary>
+        private const string DefaultPattern = "^([0-9]{3})([0-9]{3})([0-9]{3})([0-9]{2})$";
+        /// <summary>
+        /// Default replacement used to format the document number
+        /// according to the official format established by the government.
+        /// </summary>
+        private const string DefaultReplacement = "$1.$2.$3-$4";
 
         /// <summary>
         /// Randomly generates a CPF number.
         /// </summary>
         /// <returns>Random CPF number.</returns>
-        public static string Generate()
+        public static string Generate(bool withSymbols = false)
         {
-            byte[] cpf = new byte[CpfLength];
+            byte[] number = new byte[CpfLength];
 
             var random = new Random();
 
             for (int i = 0; i < CpfLength - 2; i++)
-                cpf[i] = (byte)random.Next(9);
+                number[i] = (byte)random.Next(9);
 
-            cpf[CpfLength - 2] = CpfCalculator.GetFirstVerificationDigit(cpf.Take(cpf.Length - 2).ToArray());
-            cpf[CpfLength - 1] = CpfCalculator.GetSecondVerificationDigit(cpf.Take(cpf.Length - 2).ToArray());
+            number[CpfLength - 2] = CpfCalculator.GetFirstVerificationDigit(number.Take(number.Length - 2).ToArray());
+            number[CpfLength - 1] = CpfCalculator.GetSecondVerificationDigit(number.Take(number.Length - 2).ToArray());
 
-            return string.Join("", cpf);
+            var cpf = string.Join("", number);
+
+            if (withSymbols)
+                cpf = cpf.FormatString(DefaultPattern, DefaultReplacement);
+
+            return cpf;
         }
 
         /// <summary>

@@ -18,7 +18,21 @@ public class CpfGeneratorTests
         // Assert
         Assert.True(result);
     }
-    
+
+    [Fact]
+    public void GenerateCpf_ShouldReturnCpfWithSymbols_WhenParameterIsTrue()
+    {
+        // Arrange
+        var pattern = "^([0-9]{3}).([0-9]{3}).([0-9]{3})-([0-9]{2})$";
+
+        // Act
+        var cpf = CpfGenerator.Generate(true);
+        var result = Regex.Match(cpf, pattern).Success;
+
+        // Assert
+        Assert.True(result);
+    }
+
     [Fact]
     public void GenerateInCustomFormat_ShouldReturnCpfInCustomFormat_WhenCustomFormatIsSpecified()
     {
