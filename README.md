@@ -1,6 +1,7 @@
 ![size](https://img.shields.io/github/languages/code-size/RodrigoFNascimento/BrazilianDocuments)
 ![files](https://img.shields.io/github/directory-file-count/RodrigoFNascimento/BrazilianDocuments)
 ![language](https://img.shields.io/github/languages/top/RodrigoFNascimento/BrazilianDocuments)
+![.net version](https://img.shields.io/badge/dynamic/xml?color=blue&label=.net%20version&query=%2F%2FTargetFramework%5B1%5D&url=https%3A%2F%2Fraw.githubusercontent.com%2FRodrigoFNascimento%2FBrazilianDocuments%2Fmain%2FBrazilianDocuments%2FBrazilianDocuments.csproj)
 ![workflow](https://img.shields.io/github/workflow/status/RodrigoFNascimento/BrazilianDocuments/.NET)
 ![license](https://img.shields.io/github/license/RodrigoFNascimento/BrazilianDocuments)
 
